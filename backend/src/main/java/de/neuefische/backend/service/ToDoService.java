@@ -10,7 +10,6 @@ import java.util.List;
 @Service
 public class ToDoService {
 
-
     ToDoRepository toDoRepository;
 
     @Autowired
@@ -20,5 +19,9 @@ public class ToDoService {
 
     public List<ToDo> getAllToDos() {
         return toDoRepository.getAllToDos();
+    }
+
+    public String addNewToDo(String description) {
+        return toDoRepository.addNewToDo(description);
     }
 }

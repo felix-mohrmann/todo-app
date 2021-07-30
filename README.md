@@ -7,4 +7,3 @@ Do the following steps to setup the project:
 3. run the `build-frontend.sh` script
 4. start the server and open your browser on http://localhost:8080 to see the frontend
 5. Happy hacking 👩‍💻 👨‍💻
-

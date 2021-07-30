@@ -6,15 +6,15 @@ import java.util.UUID;
 public class ToDo {
 
 
-    private  String id;
+    private final String id;
     private final String description;
-    private final String status;
+    private  Status status;
 
 
-    public ToDo(String description,String status) {
+    public ToDo(String description) {
         this.id = UUID.randomUUID().toString();
         this.description = description;
-        this.status = status;
+        this.status = Status.OPEN;
     }
 
     public String getDescription() {
@@ -25,8 +25,12 @@ public class ToDo {
         return id;
     }
 
-    public String getStatus() {
+    public Status getStatus() {
         return status;
+    }
+
+    public void setStatus(Status status) {
+        this.status = status;
     }
 
     @Override
@@ -44,10 +48,6 @@ public class ToDo {
 
     @Override
     public String toString() {
-        return "ToDo{" +
-                "description='" + description + '\'' +
-                ", id='" + id + '\'' +
-                ", status='" + status + '\'' +
-                '}';
+        return description;
     }
 }

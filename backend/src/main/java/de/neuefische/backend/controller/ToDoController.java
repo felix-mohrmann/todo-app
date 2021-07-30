@@ -11,7 +11,6 @@ import java.util.List;
 @RequestMapping("api/todo")
 public class ToDoController {
 
-
     ToDoService todoService;
 
     @Autowired
@@ -21,17 +20,19 @@ public class ToDoController {
 
     @GetMapping
     public List<ToDo> getAllToDos(){
-        return List.of( new ToDo("description","OPEN"));
-        //return todoService.getAllToDos();
 
+        return todoService.getAllToDos();
+    }
+    @GetMapping
+    public ToDo getToDoById(){
+        //Erzeuge eine ToDo. Vergleiche die Id des ToDos mit einer übergebenen Id.
+        return null;
     }
 
     @PostMapping
-    public List<ToDo> addNewTodo(@RequestBody String description) {
-        return List.of( new ToDo("description","OPEN"));
+    public String addNewTodo(@RequestBody String description) {
+
+         todoService.addNewToDo(description);
+        return "hi";
     }
-
-
-
-
 }
