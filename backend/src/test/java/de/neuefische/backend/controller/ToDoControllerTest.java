@@ -22,7 +22,7 @@ class ToDoControllerTest {
     @Test
     public void testGetAllToDos(){
         //Given
-        String url = "http://localhost:" + port + "api/todo";
+        String url = "http://localhost:" + port + "/api/todo";
 
         //When
         ResponseEntity<ToDo[]> actualResponse = testRestTemplate.getForEntity(url, ToDo[].class);
@@ -32,5 +32,8 @@ class ToDoControllerTest {
         assertEquals(expectedStatus, actualResponse.getStatusCode());
     }
 
+    //exchange methode von exchange template verwenden um zu prüfen dass wir den status geupdatet haben (?)
+    //change todo status muss in controller rein
+    // eine methode für todo controller
 
 }
