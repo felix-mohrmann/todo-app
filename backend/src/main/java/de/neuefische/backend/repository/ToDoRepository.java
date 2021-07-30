@@ -11,26 +11,22 @@ import java.util.List;
 @Repository
 public class ToDoRepository {
 
-    List<ToDo> toDoList = new ArrayList<>() ;
-
+    List<ToDo> toDoList = List.of(
+            new ToDo("description")
+    );
 
     @Autowired
     public ToDoRepository(List<ToDo> toDoList) {
-        this.toDoList=toDoList;
-
+        this.toDoList = toDoList;
     }
 
 
-
     public List<ToDo> getAllToDos() {
-
-
         return toDoList;
     }
 
 
     public String addNewToDo(String description) {
-
         ToDo toDo = new ToDo(description);
         toDoList.add(toDo);
         return toDo.getDescription();

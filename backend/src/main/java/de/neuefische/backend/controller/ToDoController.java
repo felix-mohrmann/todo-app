@@ -19,12 +19,13 @@ public class ToDoController {
     }
 
     @GetMapping
-    public List<ToDo> getAllToDos(){
-
+    public List<ToDo> getAllToDos() {
+        //return List.of( new ToDo("description","OPEN"));
         return todoService.getAllToDos();
     }
+
     @GetMapping
-    public ToDo getToDoById(){
+    public ToDo getToDoById() {
         //Erzeuge eine ToDo. Vergleiche die Id des ToDos mit einer übergebenen Id.
         return null;
     }
@@ -32,7 +33,7 @@ public class ToDoController {
     @PostMapping
     public String addNewTodo(@RequestBody String description) {
 
-         todoService.addNewToDo(description);
+        todoService.addNewToDo(description);
         return "hi";
     }
 }
