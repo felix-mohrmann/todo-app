@@ -21,7 +21,15 @@ public class ToDoService {
         return toDoRepository.getAllToDos();
     }
 
-    public String addNewToDo(String description) {
-        return toDoRepository.addNewToDo(description);
+    public ToDo addNewToDo(ToDo toDo) {
+        return toDoRepository.addNewToDo(toDo);
+    }
+
+    public ToDo getToDoByID(String id) {
+        toDoRepository.
+    }
+
+    public void advanceStatus(ToDo toDo) {
+
     }
 }

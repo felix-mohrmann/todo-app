@@ -5,16 +5,14 @@ import java.util.UUID;
 
 public class ToDo {
 
-
     private final String id;
     private final String description;
-    private  Status status;
+    private String status;
 
-
-    public ToDo(String description) {
+    public ToDo(String description, String status) {
         this.id = UUID.randomUUID().toString();
         this.description = description;
-        this.status = Status.OPEN;
+        this.status = status;
     }
 
     public String getDescription() {
@@ -25,11 +23,11 @@ public class ToDo {
         return id;
     }
 
-    public Status getStatus() {
+    public String getStatus() {
         return status;
     }
 
-    public void setStatus(Status status) {
+    public void setStatus(String status) {
         this.status = status;
     }
 

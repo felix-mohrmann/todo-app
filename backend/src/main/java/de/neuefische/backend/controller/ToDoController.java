@@ -20,20 +20,19 @@ public class ToDoController {
 
     @GetMapping
     public List<ToDo> getAllToDos() {
-        //return List.of( new ToDo("description","OPEN"));
+        //return List.of( new ToDo("description"));
         return todoService.getAllToDos();
     }
 
-    @GetMapping
-    public ToDo getToDoById() {
-        //Erzeuge eine ToDo. Vergleiche die Id des ToDos mit einer übergebenen Id.
-        return null;
+    @PostMapping
+    public ToDo addNewTodo(@RequestBody ToDo toDo) {
+        return todoService.addNewToDo(toDo);
     }
 
-    @PostMapping
-    public String addNewTodo(@RequestBody String description) {
-
-        todoService.addNewToDo(description);
-        return "hi";
+    @PutMapping
+    public ToDo changeToDoStatus(@RequestBody String id){
+        ToDo toDo = todoService.getToDoByID(id);
+        todoService.advanceStatus(toDo);
+        return toDo;
     }
 }
