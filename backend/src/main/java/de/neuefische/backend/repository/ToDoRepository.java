@@ -34,4 +34,8 @@ public class ToDoRepository {
         }
         return null;
     }
+
+    public void deleteToDo(String id) {
+        toDoList.remove(getToDoById(id));
+    }
 }
