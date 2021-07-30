@@ -29,10 +29,11 @@ public class ToDoController {
         return todoService.addNewToDo(toDo);
     }
 
-    @PutMapping
-    public ToDo changeToDoStatus(@RequestBody String id){
-        ToDo toDo = todoService.getToDoByID(id);
-        todoService.advanceStatus(toDo);
-        return toDo;
+    @PutMapping("{id}")
+    public ToDo changeToDoStatus(@PathVariable (name= "id") String id){
+        return todoService.advanceStatus(id);
+
     }
+
+
 }

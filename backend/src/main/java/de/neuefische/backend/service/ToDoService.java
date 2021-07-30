@@ -26,10 +26,17 @@ public class ToDoService {
     }
 
     public ToDo getToDoByID(String id) {
-        toDoRepository.
+        return toDoRepository.getToDoById(id);
     }
 
-    public void advanceStatus(ToDo toDo) {
+    public ToDo advanceStatus(String id) {
+        ToDo toDo =getToDoByID(id);
+        switch(toDo.getStatus()) {
+            case "OPEN": toDo.setStatus("IN_PROGRESS"); break;
+            case "IN_PROGRESS": toDo.setStatus("DONE"); break;
+        }
+
+        return toDo;
 
     }
 }
