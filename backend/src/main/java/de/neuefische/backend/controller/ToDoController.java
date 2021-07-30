@@ -3,10 +3,7 @@ package de.neuefische.backend.controller;
 import de.neuefische.backend.model.ToDo;
 import de.neuefische.backend.service.ToDoService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -24,9 +21,14 @@ public class ToDoController {
 
     @GetMapping
     public List<ToDo> getAllToDos(){
-        return List.of( new ToDo("description","bla"));
+        return List.of( new ToDo("description","OPEN"));
         //return todoService.getAllToDos();
 
+    }
+
+    @PostMapping
+    public List<ToDo> addNewTodo(@RequestBody String description) {
+        return List.of( new ToDo("description","OPEN"));
     }
 
 
