@@ -21,7 +21,6 @@ public class ToDoController {
 
     @GetMapping
     public List<ToDo> getAllToDos() {
-        //return List.of( new ToDo("description"));
         return todoService.getAllToDos();
     }
 
@@ -33,15 +32,10 @@ public class ToDoController {
     @PutMapping("{id}")
     public ToDo changeToDoStatus(@PathVariable (name= "id") String id){
         return todoService.advanceStatus(id);
-
     }
 
     @DeleteMapping("{id}")
     public void deleteToDo(@PathVariable (name = "id") String id){
          todoService.deleteToDo(id);
-
-
     }
-
-
 }

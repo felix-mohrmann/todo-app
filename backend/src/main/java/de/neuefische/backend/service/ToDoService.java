@@ -18,7 +18,7 @@ public class ToDoService {
     }
 
     public List<ToDo> getAllToDos() {
-        return toDoRepository.getAllToDos();
+        return toDoRepository.findAllToDos();
     }
 
     public ToDo addNewToDo(ToDo toDo) {
@@ -37,11 +37,9 @@ public class ToDoService {
         }
 
         return toDo;
-
     }
 
     public void  deleteToDo(String id) {
         toDoRepository.deleteToDo(id);
-
     }
 }

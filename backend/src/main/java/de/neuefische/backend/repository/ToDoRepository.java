@@ -12,12 +12,7 @@ public class ToDoRepository {
 
     private List<ToDo> toDoList = new ArrayList<>();
 
-    @Autowired
-    public ToDoRepository(List<ToDo> toDoList) {
-        this.toDoList = toDoList;
-    }
-
-    public List<ToDo> getAllToDos() {
+    public List<ToDo> findAllToDos() {
         return toDoList;
     }
 

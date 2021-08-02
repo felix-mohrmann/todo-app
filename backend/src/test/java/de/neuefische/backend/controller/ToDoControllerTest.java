@@ -17,20 +17,21 @@ class ToDoControllerTest {
     private int port;
 
     @Autowired
-    TestRestTemplate testRestTemplate;
+    private TestRestTemplate testRestTemplate;
 
     @Test
     public void testGetAllToDos(){
         //Given
-        String url = "http://localhost:" + port + "api/todo";
+        String url = String.format("http://localhost:%d/api/todo", port);
 
         //When
         ResponseEntity<ToDo[]> actualResponse = testRestTemplate.getForEntity(url, ToDo[].class);
-        HttpStatus expectedStatus = HttpStatus.OK;
 
         //Then
-        assertEquals(expectedStatus, actualResponse.getStatusCode());
+        HttpStatus actualStatus = actualResponse.getStatusCode();
+        assertEquals(HttpStatus.OK, actualStatus);
+
+        ToDo[] actualResponseBody = actualResponse.getBody();
+        assertEquals(0, actualResponseBody.length);
     }
-
-
 }
