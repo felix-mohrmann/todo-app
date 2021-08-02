@@ -30,8 +30,10 @@ class ToDoControllerTest {
         //Then
         HttpStatus actualStatus = actualResponse.getStatusCode();
         assertEquals(HttpStatus.OK, actualStatus);
-
-        ToDo[] actualResponseBody = actualResponse.getBody();
-        assertEquals(0, actualResponseBody.length);
     }
+
+    //exchange methode von exchange template verwenden um zu prüfen dass wir den status geupdatet haben (?)
+    //change todo status muss in controller rein
+    // eine methode für todo controller
+
 }
