@@ -41,4 +41,19 @@ class ToDoServiceTest {
         //then
         assertFalse(actual.isEmpty());
     }
+
+    @Test
+    public void testNullToDoCreation() {
+        //given
+        ToDoService toDoService = new ToDoService(new ToDoRepository());
+
+        try {
+            //when
+            ToDo todo = new ToDo("", Status.OPEN.name());
+            toDoService.addNewToDo(todo);
+            fail();
+        } catch (IllegalArgumentException e) {
+            //expected to be thrown if todo is null
+        }
+    }
 }
