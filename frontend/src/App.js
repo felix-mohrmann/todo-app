@@ -1,62 +1,54 @@
-import styled from 'styled-components/macro'
-import AppHeader from './components/AppHeader'
+import './App.css'
+import Header from './components/Header'
+import BoardsOverview from './components/BoardsOverview'
 import NewTodo from './components/NewTodo'
-import Boards from './components/Boards'
 import { useEffect, useState } from 'react'
-import axios from 'axios'
-
-const nextStatus = {
-  OPEN: 'IN_PROGRESS',
-  IN_PROGRESS: 'DONE',
-}
+import {
+  deleteTodo,
+  getAllTodos,
+  postTodo,
+  putTodo,
+} from './service/todo-api-service'
+import { nextStatus } from './service/todo-service'
 
 export default function App() {
   const [todos, setTodos] = useState([])
 
-  const fetchTodos = () =>
-    axios
-      .get('/api/todo')
-      .then(response => setTodos(response.data))
-      .catch(console.error)
-
   useEffect(() => {
-    axios
-      .get('/api/todo')
-      .then(response => setTodos(response.data))
-      .catch(console.error)
+    getAllTodos()
+        .then(todos => setTodos(todos))
+        .catch(error => console.error(error))
   }, [])
 
+  const createNewTodo = description =>
+      postTodo(description)
+          .then(() => getAllTodos())
+          .then(todos => setTodos(todos))
+          .catch(error => console.error(error))
+
   const advanceTodo = todo => {
-    const advancedTodo = { ...todo, status: nextStatus[todo.status] }
-    axios
-      .put(`/api/todo/${todo.id}`, advancedTodo)
-      .then(fetchTodos)
-      .catch(console.error)
+    const newTodo = { ...todo, status: nextStatus(todo.status) }
+    putTodo(newTodo)
+        .then(() => getAllTodos())
+        .then(todos => setTodos(todos))
+        .catch(error => console.error(error))
   }
 
-  const deleteTodo = id =>
-    axios.delete(`/api/todo/${id}`).then(fetchTodos).catch(console.error)
-
-  const addTodo = description => {
-    const todo = { description, status: 'OPEN' }
-    axios.post('/api/todo', todo).then(fetchTodos).catch(console.error)
-  }
+  const removeTodo = id =>
+      deleteTodo(id)
+          .then(() => getAllTodos())
+          .then(todos => setTodos(todos))
+          .catch(error => console.error(error))
 
   return (
-    <PageLayout>
-      <AppHeader />
-      <Boards todos={todos} onAdvance={advanceTodo} onDelete={deleteTodo} />
-      <NewTodo onAdd={addTodo} />
-    </PageLayout>
+      <div className="page-layout">
+        <Header />
+        <BoardsOverview
+            todos={todos}
+            onAdvance={advanceTodo}
+            onDelete={removeTodo}
+        />
+        <NewTodo onAdd={createNewTodo} />
+      </div>
   )
 }
-
-const PageLayout = styled.div`
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: grid;
-  grid-template-rows: min-content 1fr min-content;
-`

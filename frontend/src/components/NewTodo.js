@@ -1,38 +1,26 @@
-import styled from 'styled-components/macro'
+import './NewTodo.css'
 import { useState } from 'react'
+import PropTypes from 'prop-types'
 
-export default function NewTodo({ onAdd }) {
-  const [description, setDescription] = useState('')
-
-  const handleDescriptionChange = event => setDescription(event.target.value)
-
-  const handleSubmit = event => {
-    event.preventDefault()
-    onAdd(description)
-    setDescription('')
-  }
-
-  return (
-    <Form onSubmit={handleSubmit}>
-      <input
-        type="text"
-        name="new-todo"
-        placeholder="Describe the new todo"
-        value={description}
-        onChange={handleDescriptionChange}
-      />
-      <button>Add</button>
-    </Form>
-  )
+NewTodo.propTypes = {
+    onAdd: PropTypes.func.isRequired,
 }
 
-const Form = styled.form`
-  padding: 12px;
-  display: grid;
-  grid-template-columns: 1fr min-content;
+export default function NewTodo({ onAdd }) {
+    const [description, setDescription] = useState('')
 
-  input {
-    display: block;
-    width: 100%;
-  }
-`
+    const handleAddClick = () => {
+        onAdd(description).then(() => setDescription(''))
+    }
+
+    return (
+        <section className="new-todo">
+            <input
+                type="text"
+                value={description}
+                onChange={event => setDescription(event.target.value)}
+            />
+            <button onClick={handleAddClick}>Add</button>
+        </section>
+    )
+}

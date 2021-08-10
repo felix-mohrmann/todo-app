@@ -5,7 +5,6 @@ import de.neuefische.backend.service.ToDoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -30,13 +29,12 @@ public class ToDoController {
     }
 
     @PutMapping("{id}")
-    public ToDo changeToDoStatus(@PathVariable (name= "id") String id){
+    public ToDo changeToDoStatus(@PathVariable ("id") String id){
         return todoService.advanceStatus(id);
     }
 
-
     @DeleteMapping("{id}")
-    public void deleteToDo(@PathVariable (name = "id") String id){
+    public void deleteToDo(@PathVariable ("id") String id){
          todoService.deleteToDo(id);
     }
 }

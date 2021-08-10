@@ -1,27 +1,24 @@
-import styled from 'styled-components/macro'
+import './TodoItem.css'
+import PropTypes from 'prop-types'
 
-export default function TodoItem({ todo, onAdvance, onDelete }) {
-  return (
-    <Wrapper>
-      <p>{todo.description}</p>
-      <ButtonGroup>
-        {onAdvance && <button onClick={() => onAdvance(todo)}>Advance</button>}
-        {onDelete && <button onClick={() => onDelete(todo.id)}>Delete</button>}
-      </ButtonGroup>
-    </Wrapper>
-  )
+TodoItem.propTypes = {
+    todo: PropTypes.shape({
+        id: PropTypes.string.isRequired,
+        description: PropTypes.string.isRequired,
+        status: PropTypes.string.isRequired,
+    }).isRequired,
+    onAdvance: PropTypes.func,
+    onDelete: PropTypes.func,
 }
 
-const Wrapper = styled.section`
-  border: 1px solid #333;
-  box-shadow: 1px 2px 4px #666;
-  padding: 12px;
-  p {
-    margin: 0 0 12px 0;
-  }
-`
-
-const ButtonGroup = styled.div`
-  display: flex;
-  justify-content: space-between;
-`
+export default function TodoItem({ todo, onAdvance, onDelete }) {
+    return (
+        <section className="todo-item">
+            <h3>{todo.description}</h3>
+            <section className="todo-item__button-group">
+                {onAdvance && <button onClick={() => onAdvance(todo)}>Advance</button>}
+                {onDelete && <button onClick={() => onDelete(todo.id)}>Delete</button>}
+            </section>
+        </section>
+    )
+}
