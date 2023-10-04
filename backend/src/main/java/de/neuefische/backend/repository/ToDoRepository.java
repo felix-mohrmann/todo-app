@@ -1,7 +1,6 @@
 package de.neuefische.backend.repository;
 
 import de.neuefische.backend.model.ToDo;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
@@ -22,8 +21,8 @@ public class ToDoRepository {
     }
 
     public ToDo getToDoById(String id) {
-        for (ToDo toDo:toDoList) {
-            if(toDo.getId().equals(id)){
+        for (ToDo toDo : toDoList) {
+            if (toDo.getId().equals(id)) {
                 return toDo;
             }
         }
