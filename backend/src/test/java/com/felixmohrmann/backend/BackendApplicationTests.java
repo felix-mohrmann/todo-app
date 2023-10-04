@@ -1,4 +1,4 @@
-package com.felixmohrmann;
+package com.felixmohrmann.backend;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
