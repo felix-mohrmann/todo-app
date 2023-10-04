@@ -43,5 +43,5 @@
     "prettier": "2.3.2",
     "prop-types": "^15.7.2"
   },
-  "proxy": "http://localhost:8080"
+  "proxy": "http://https://todo-app-backend-qlbk.onrender.com"
 }
