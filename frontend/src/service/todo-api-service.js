@@ -1,11 +1,24 @@
-import axios from 'axios'
+import axios from 'axios';
 
 export const getAllTodos = () =>
-    axios.get('/api/todo').then(response => response.data)
+  axios('/api/todo').then((response) => response.data);
 
-export const postTodo = description =>
-    axios.post('/api/todo', { description: description, status: 'OPEN' })
+export const postTodo = (description) =>
+  axios({
+    method: 'post',
+    url: '/api/todo',
+    data: { description: description, status: 'OPEN' },
+  });
 
-export const putTodo = todo => axios.put(`/api/todo/${todo.id}`, todo)
+export const putTodo = (todo) =>
+  axios({
+    method: 'put',
+    url: `/api/todo/${todo.id}`,
+    data: todo,
+  });
 
-export const deleteTodo = id => axios.delete(`/api/todo/${id}`)
+export const deleteTodo = (id) =>
+  axios({
+    method: 'delete',
+    url: `/api/todo/${id}`,
+  });
