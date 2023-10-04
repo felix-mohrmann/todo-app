@@ -1,9 +1,10 @@
-package de.neuefische.backend.controller;
+package com.felixmohrmann.backend.controller;
 
-import de.neuefische.backend.model.ToDo;
-import de.neuefische.backend.service.ToDoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import com.felixmohrmann.backend.model.ToDo;
+import com.felixmohrmann.backend.service.ToDoService;
 
 import java.util.List;
 
@@ -29,12 +30,12 @@ public class ToDoController {
     }
 
     @PutMapping("{id}")
-    public ToDo changeToDoStatus(@PathVariable ("id") String id){
+    public ToDo changeToDoStatus(@PathVariable("id") String id) {
         return todoService.advanceStatus(id);
     }
 
     @DeleteMapping("{id}")
-    public void deleteToDo(@PathVariable ("id") String id){
-         todoService.deleteToDo(id);
+    public void deleteToDo(@PathVariable("id") String id) {
+        todoService.deleteToDo(id);
     }
 }

@@ -1,10 +1,11 @@
-package de.neuefische.backend.service;
+package com.felixmohrmann.backend.service;
 
-import de.neuefische.backend.model.Status;
-import de.neuefische.backend.model.ToDo;
-import de.neuefische.backend.repository.ToDoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import com.felixmohrmann.backend.model.Status;
+import com.felixmohrmann.backend.model.ToDo;
+import com.felixmohrmann.backend.repository.ToDoRepository;
 
 import java.util.List;
 
@@ -26,11 +27,11 @@ public class ToDoService {
     }
 
     public ToDo addNewToDo(ToDo toDo) {
-        //check if all requirements are met
+        // check if all requirements are met
         notNull(toDo, "Todo must not be null to be created");
         hasText(toDo.getDescription(), "Todo must have a valid description to be created");
 
-        //set user input to "creation default status OPEN
+        // set user input to "creation default status OPEN
         toDo.setStatus(Status.OPEN.name());
 
         return toDoRepository.addNewToDo(toDo);

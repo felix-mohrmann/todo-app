@@ -1,7 +1,8 @@
-package de.neuefische.backend.repository;
+package com.felixmohrmann.backend.repository;
 
-import de.neuefische.backend.model.ToDo;
 import org.springframework.stereotype.Repository;
+
+import com.felixmohrmann.backend.model.ToDo;
 
 import java.util.ArrayList;
 import java.util.List;

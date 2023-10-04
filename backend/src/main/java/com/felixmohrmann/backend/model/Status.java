@@ -1,4 +1,4 @@
-package de.neuefische.backend.model;
+package com.felixmohrmann.backend.model;
 
 public enum Status {
     OPEN,

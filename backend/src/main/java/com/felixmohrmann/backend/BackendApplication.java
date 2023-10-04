@@ -1,4 +1,4 @@
-package de.neuefische.backend;
+package com.felixmohrmann.backend;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

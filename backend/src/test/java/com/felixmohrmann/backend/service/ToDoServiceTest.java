@@ -1,9 +1,10 @@
-package de.neuefische.backend.service;
+package com.felixmohrmann.backend.service;
 
-import de.neuefische.backend.model.Status;
-import de.neuefische.backend.model.ToDo;
-import de.neuefische.backend.repository.ToDoRepository;
 import org.junit.jupiter.api.Test;
+
+import com.felixmohrmann.backend.model.Status;
+import com.felixmohrmann.backend.model.ToDo;
+import com.felixmohrmann.backend.repository.ToDoRepository;
 
 import java.util.List;
 
@@ -15,13 +16,13 @@ class ToDoServiceTest {
 
     @Test
     public void testRepoIsEmpty() {
-        //given
+        // given
         ToDoService toDoService = new ToDoService(new ToDoRepository());
 
-        //when
+        // when
         List<ToDo> actual = toDoService.getAllToDos();
 
-        //then
+        // then
         assertTrue(actual.isEmpty());
     }
 
@@ -30,30 +31,28 @@ class ToDoServiceTest {
         ToDoRepository toDotRepositoryMock = mock(ToDoRepository.class);
         when(toDotRepositoryMock.findAllToDos()).thenReturn(
                 List.of(
-                        new ToDo("description", Status.OPEN.name())
-                )
-        );
+                        new ToDo("description", Status.OPEN.name())));
         ToDoService toDoService = new ToDoService(toDotRepositoryMock);
 
-        //when
+        // when
         List<ToDo> actual = toDoService.getAllToDos();
 
-        //then
+        // then
         assertFalse(actual.isEmpty());
     }
 
     @Test
     public void testNullToDoCreation() {
-        //given
+        // given
         ToDoService toDoService = new ToDoService(new ToDoRepository());
 
         try {
-            //when
+            // when
             ToDo todo = new ToDo("", Status.OPEN.name());
             toDoService.addNewToDo(todo);
             fail();
         } catch (IllegalArgumentException e) {
-            //expected to be thrown if todo is null
+            // expected to be thrown if todo is null
         }
     }
 }

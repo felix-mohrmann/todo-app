@@ -1,4 +1,4 @@
-package de.neuefische.backend.model;
+package com.felixmohrmann.backend.model;
 
 import java.util.Objects;
 import java.util.UUID;
@@ -33,10 +33,13 @@ public class ToDo {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o)
+            return true;
+        if (o == null || getClass() != o.getClass())
+            return false;
         ToDo toDo = (ToDo) o;
-        return Objects.equals(description, toDo.description) && Objects.equals(id, toDo.id) && Objects.equals(status, toDo.status);
+        return Objects.equals(description, toDo.description) && Objects.equals(id, toDo.id)
+                && Objects.equals(status, toDo.status);
     }
 
     @Override
