@@ -6,19 +6,19 @@ export const getAllTodos = () =>
 export const postTodo = (description) =>
   axios({
     method: 'post',
-    url: '/api/todo',
+    url: 'https://todo.felixmohrmann.com/api/todo',
     data: { description: description, status: 'OPEN' },
   });
 
 export const putTodo = (todo) =>
   axios({
     method: 'put',
-    url: `/api/todo/${todo.id}`,
+    url: `https://todo.felixmohrmann.com/api/todo/${todo.id}`,
     data: todo,
   });
 
 export const deleteTodo = (id) =>
   axios({
     method: 'delete',
-    url: `/api/todo/${id}`,
+    url: `https://todo.felixmohrmann.com/api/todo/${id}`,
   });
