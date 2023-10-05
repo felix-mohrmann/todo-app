@@ -1,9 +1,9 @@
-import './Header.css'
+import './Header.css';
 
 export default function Header() {
-    return (
-        <header className="header">
-            <h1>Super Kanban</h1>
-        </header>
-    )
+  return (
+    <header className="header">
+      <h1>My ToDo-List</h1>
+    </header>
+  );
 }

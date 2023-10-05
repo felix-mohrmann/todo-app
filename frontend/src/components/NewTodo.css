@@ -1,5 +1,6 @@
 .new-todo {
     display: grid;
     grid-template-columns: 1fr min-content;
-    padding: 12px;
+    padding: 12px 600px 12px 12px;
+    background-color: gray;
 }
