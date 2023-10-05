@@ -10,6 +10,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("api/todo")
+@CrossOrigin(origins = "http://todo.felixmohrmann.com")
 public class ToDoController {
 
     ToDoService todoService;
