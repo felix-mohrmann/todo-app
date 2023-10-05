@@ -43,12 +43,12 @@ export default function App() {
   return (
     <div className="page-layout">
       <Header />
+      <NewTodo onAdd={createNewTodo} />
       <BoardsOverview
         todos={todos}
         onAdvance={advanceTodo}
         onDelete={removeTodo}
       />
-      <NewTodo onAdd={createNewTodo} />
     </div>
   );
 }
