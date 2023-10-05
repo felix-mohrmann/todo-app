@@ -1,5 +1,5 @@
 [[redirects]]
-  from = "https://todo-app.felixmohrmann.com/api/todo"
-  to = "https://todo.felixmohrmann.com/api/todo"
-  status = 200
-  force = true
+    from = "https://todo-app.felixmohrmann.com/api/todo/*"
+    to = "https://todo.felixmohrmann.com/api/todo/:splat"
+    status = 200
+    force = true
