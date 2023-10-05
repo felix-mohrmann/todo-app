@@ -3,4 +3,4 @@
     to = "https://todo.felixmohrmann.com/api/todo/:splat"
     status = 200
     force = true
-    headers = {X-From = "Netlify"}
+    headers = {Access-Control-Allow-Origin = "*", Access-Control-Allow-Methods = "POST"}
