@@ -1,7 +1,9 @@
 import axios from 'axios';
 
 export const getAllTodos = () =>
-  axios('/api/todo').then((response) => response.data);
+  axios('https://todo.felixmohrmann.com/api/todo').then(
+    (response) => response.data
+  );
 
 export const postTodo = (description) =>
   axios({
