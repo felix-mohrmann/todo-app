@@ -9,7 +9,8 @@ import com.felixmohrmann.backend.service.ToDoService;
 import java.util.List;
 
 @RestController
-@RequestMapping("https://todo.felixmohrmann.com/api/todo")
+@CrossOrigin
+@RequestMapping("api/todo")
 public class ToDoController {
 
     ToDoService todoService;

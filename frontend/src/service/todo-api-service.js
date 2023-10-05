@@ -1,26 +1,24 @@
 import axios from 'axios';
 
 export const getAllTodos = () =>
-  axios('https://todo.felixmohrmann.com/api/todo').then(
-    (response) => response.data
-  );
+  axios('api/todo').then((response) => response.data);
 
 export const postTodo = (description) =>
   axios({
     method: 'post',
-    url: 'https://todo.felixmohrmann.com/api/todo',
+    url: 'api/todo',
     data: { description: description, status: 'OPEN' },
   });
 
 export const putTodo = (todo) =>
   axios({
     method: 'put',
-    url: `https://todo.felixmohrmann.com/api/todo/${todo.id}`,
+    url: `api/todo/${todo.id}`,
     data: todo,
   });
 
 export const deleteTodo = (id) =>
   axios({
     method: 'delete',
-    url: `https://todo.felixmohrmann.com/api/todo/${id}`,
+    url: `api/todo/${id}`,
   });
