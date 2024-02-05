@@ -2,6 +2,7 @@ import './App.css';
 import Header from './components/Header';
 import BoardsOverview from './components/BoardsOverview';
 import NewTodo from './components/NewTodo';
+import Info from './components/Info';
 import { useEffect, useState } from 'react';
 import {
   deleteTodo,
@@ -44,6 +45,7 @@ export default function App() {
     <div className="page-layout">
       <Header />
       <NewTodo onAdd={createNewTodo} />
+      <Info />
       <BoardsOverview
         todos={todos}
         onAdvance={advanceTodo}
