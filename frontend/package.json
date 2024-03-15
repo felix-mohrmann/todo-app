@@ -43,5 +43,5 @@
     "prettier": "2.3.2",
     "prop-types": "^15.7.2"
   },
-  "proxy": "todo-app.felixmohrmann.com"
+  "proxy": "https://todo-app.felixmohrmann.com"
 }
