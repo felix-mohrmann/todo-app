@@ -1,5 +1,9 @@
-export default function Info(){
+import './Info.css';
+
+export default function Info() {
   return (
-    <p>The initial loading may take a little longer. Thanks for your patience.</p>
-  )
+    <p>
+      The initial loading may take a little longer. Thanks for your patience.
+    </p>
+  );
 }
